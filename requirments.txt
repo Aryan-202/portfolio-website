@@ -1,2 +1,3 @@
 npm i
 npm install tailwindcss @tailwindcss/vite
+npm install --save-dev tailwind-scrollbar
