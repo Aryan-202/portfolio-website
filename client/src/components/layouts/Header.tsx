@@ -1,10 +1,11 @@
-import React from 'react';
-import { Navbar } from '../ui/Navbar';
+import  Navbar  from "../ui/Navbar"
 
-export const Header: React.FC = () => {
+const Header = () => {
   return (
-    <header>
+    <header className="header">
       <Navbar />
     </header>
-  );
-};
+  )
+}
+
+export default Header

@@ -1,43 +1,26 @@
-import React from 'react';
-import styles from './Button.module.css';
+import type { ButtonHTMLAttributes } from 'react'
+import styles from './Button.module.css'
 
-interface ButtonProps {
-  children: React.ReactNode;
-  variant?: 'primary' | 'secondary';
-  size?: 'small' | 'medium' | 'large';
-  fullWidth?: boolean;
-  disabled?: boolean;
-  onClick?: () => void;
-  type?: 'button' | 'submit' | 'reset';
-  className?: string;
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  variant?: 'primary' | 'secondary' | 'outline'
+  size?: 'small' | 'medium' | 'large'
 }
 
-export const Button: React.FC<ButtonProps> = ({
-  children,
-  variant = 'primary',
+const Button = ({ 
+  children, 
+  variant = 'primary', 
   size = 'medium',
-  fullWidth = false,
-  disabled = false,
-  onClick,
-  type = 'button',
-  className = ''
-}) => {
-  const buttonClass = `
-    ${styles.button}
-    ${styles[variant]}
-    ${styles[size]}
-    ${fullWidth ? styles.fullWidth : ''}
-    ${className}
-  `.trim();
-
+  className = '',
+  ...props 
+}: ButtonProps) => {
   return (
-    <button
-      type={type}
-      className={buttonClass}
-      onClick={onClick}
-      disabled={disabled}
+    <button 
+      className={`${styles.button} ${styles[variant]} ${styles[size]} ${className}`}
+      {...props}
     >
       {children}
     </button>
-  );
-};
+  )
+}
+
+export default Button

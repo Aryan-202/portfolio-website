@@ -1,60 +1,65 @@
 .button {
-  padding: 0.75rem 2rem;
   border: none;
-  border-radius: 8px;
-  font-size: 1rem;
-  font-weight: 600;
+  border-radius: var(--radius-md);
   cursor: pointer;
-  transition: all 0.3s ease;
-  text-decoration: none;
+  font-family: inherit;
+  font-weight: 500;
+  transition: all 0.2s ease;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-}
-
-.primary {
-  background: var(--accent-primary);
-  color: white;
-}
-
-.primary:hover {
-  background: var(--accent-secondary);
-  transform: translateY(-2px);
-}
-
-.secondary {
-  background: transparent;
-  color: var(--text-primary);
-  border: 2px solid var(--accent-primary);
-}
-
-.secondary:hover {
-  background: var(--accent-primary);
-  color: white;
-  transform: translateY(-2px);
-}
-
-.small {
-  padding: 0.5rem 1.5rem;
-  font-size: 0.9rem;
-}
-
-.large {
-  padding: 1rem 2.5rem;
-  font-size: 1.1rem;
-}
-
-.fullWidth {
-  width: 100%;
+  text-decoration: none;
 }
 
 .button:disabled {
   opacity: 0.6;
   cursor: not-allowed;
-  transform: none;
 }
 
-.button:disabled:hover {
-  transform: none;
+/* Variants */
+.primary {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.primary:hover:not(:disabled) {
+  background-color: var(--primary-hover);
+}
+
+.secondary {
+  background-color: var(--card-bg);
+  color: var(--foreground);
+  border: 1px solid var(--border-color);
+}
+
+.secondary:hover:not(:disabled) {
+  background-color: var(--border-color);
+}
+
+.outline {
+  background-color: transparent;
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+}
+
+.outline:hover:not(:disabled) {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+/* Sizes */
+.small {
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+}
+
+.medium {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+}
+
+.large {
+  padding: 1rem 2rem;
+  font-size: 1.125rem;
 }

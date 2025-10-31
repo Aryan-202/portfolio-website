@@ -3,98 +3,91 @@
   top: 0;
   left: 0;
   right: 0;
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--border-color);
-  z-index: 100;
+  background-color: transparent;
+  padding: var(--spacing-md) 0;
   transition: all 0.3s ease;
+  z-index: 1000;
 }
 
-.navbarScrolled {
-  background: rgba(255, 255, 255, 0.98);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+.navbar.scrolled {
+  background-color: var(--background);
+  box-shadow: var(--shadow-sm);
+  padding: var(--spacing-sm) 0;
 }
 
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 var(--spacing-md);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 70px;
 }
 
-.logo {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--text-primary);
+.logo a {
+  font-size: var(--font-size-xl);
+  font-weight: bold;
+  color: var(--foreground);
   text-decoration: none;
 }
 
-.nav {
+.navItems {
   display: flex;
-  gap: 2rem;
+  gap: var(--spacing-xl);
   align-items: center;
 }
 
 .navLink {
-  color: var(--text-secondary);
+  color: var(--foreground);
   text-decoration: none;
+  transition: color 0.2s ease;
   font-weight: 500;
-  transition: color 0.3s ease;
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-size: 1rem;
 }
 
 .navLink:hover {
-  color: var(--accent-primary);
+  color: var(--primary-color);
 }
 
-.mobileMenuButton {
+.menuButton {
   display: none;
+  flex-direction: column;
   background: none;
   border: none;
   cursor: pointer;
-  padding: 0.5rem;
+  padding: var(--spacing-xs);
+  gap: 4px;
 }
 
-.mobileMenuIcon {
-  width: 24px;
-  height: 24px;
-  color: var(--text-primary);
-}
-
-.mobileMenu {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-  background: var(--bg-primary);
-  border-top: 1px solid var(--border-color);
-  padding: 1rem 0;
-}
-
-.mobileMenuOpen {
-  display: block;
-}
-
-.mobileNav {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  padding: 0 20px;
+.menuButton span {
+  width: 25px;
+  height: 3px;
+  background-color: var(--foreground);
+  transition: all 0.3s ease;
 }
 
 @media (max-width: 768px) {
-  .nav {
-    display: none;
+  .menuButton {
+    display: flex;
   }
-  
-  .mobileMenuButton {
-    display: block;
+
+  .navItems {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--background);
+    flex-direction: column;
+    padding: var(--spacing-lg);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .navItems.mobileOpen {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
   }
 }

@@ -1,96 +1,49 @@
-import React, { useState, useEffect } from 'react';
-import styles from './Navbar.module.css';
-import { personalInfo } from '../../../data/personalInfo';
+import { useState } from 'react'
+import { useScroll } from '../../../hooks'
+import styles from './Navbar.module.css'
 
-export const Navbar: React.FC = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+const Navbar = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const { isScrolled } = useScroll()
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const scrollToSection = (sectionId: string) => {
-    const section = document.getElementById(sectionId);
-    section?.scrollIntoView({ behavior: 'smooth' });
-    setIsMobileMenuOpen(false);
-  };
-
-  const navbarClass = `${styles.navbar} ${isScrolled ? styles.navbarScrolled : ''}`;
-  const mobileMenuClass = `${styles.mobileMenu} ${isMobileMenuOpen ? styles.mobileMenuOpen : ''}`;
+  const navItems = [
+    { name: 'Home', href: '#home' },
+    { name: 'About', href: '#about' },
+    { name: 'Projects', href: '#projects' },
+    { name: 'Contact', href: '#contact' }
+  ]
 
   return (
-    <nav className={navbarClass}>
+    <nav className={`${styles.navbar} ${isScrolled ? styles.scrolled : ''}`}>
       <div className={styles.container}>
-        <a 
-          href="#home" 
-          className={styles.logo}
-          onClick={(e) => {
-            e.preventDefault();
-            scrollToSection('home');
-          }}
-        >
-          {personalInfo.name}
-        </a>
-
-        <div className={styles.nav}>
-          <button 
-            className={styles.navLink}
-            onClick={() => scrollToSection('home')}
-          >
-            Home
-          </button>
-          <button 
-            className={styles.navLink}
-            onClick={() => scrollToSection('about')}
-          >
-            About
-          </button>
-          <button 
-            className={styles.navLink}
-            onClick={() => scrollToSection('contact')}
-          >
-            Contact
-          </button>
+        <div className={styles.logo}>
+          <a href="#home">Portfolio</a>
+        </div>
+        
+        <div className={`${styles.navItems} ${isMenuOpen ? styles.mobileOpen : ''}`}>
+          {navItems.map((item) => (
+            <a
+              key={item.name}
+              href={item.href}
+              className={styles.navLink}
+              onClick={() => setIsMenuOpen(false)}
+            >
+              {item.name}
+            </a>
+          ))}
         </div>
 
-        <button 
-          className={styles.mobileMenuButton}
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+        <button
+          className={styles.menuButton}
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
-          <div className={styles.mobileMenuIcon}>
-            {isMobileMenuOpen ? '✕' : '☰'}
-          </div>
+          <span></span>
+          <span></span>
+          <span></span>
         </button>
-
-        <div className={mobileMenuClass}>
-          <div className={styles.mobileNav}>
-            <button 
-              className={styles.navLink}
-              onClick={() => scrollToSection('home')}
-            >
-              Home
-            </button>
-            <button 
-              className={styles.navLink}
-              onClick={() => scrollToSection('about')}
-            >
-              About
-            </button>
-            <button 
-              className={styles.navLink}
-              onClick={() => scrollToSection('contact')}
-            >
-              Contact
-            </button>
-          </div>
-        </div>
       </div>
     </nav>
-  );
-};
+  )
+}
+
+export default Navbar

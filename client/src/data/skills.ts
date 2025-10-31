@@ -1,54 +1,14 @@
-import { Skill } from '../types/personal';
+import type { Skill } from '../types'
 
 export const skills: Skill[] = [
-  {
-    name: 'JavaScript',
-    level: 90,
-    category: 'Frontend'
-  },
-  {
-    name: 'TypeScript',
-    level: 85,
-    category: 'Frontend'
-  },
-  {
-    name: 'React',
-    level: 88,
-    category: 'Frontend'
-  },
-  {
-    name: 'Node.js',
-    level: 82,
-    category: 'Backend'
-  },
-  {
-    name: 'Python',
-    level: 75,
-    category: 'Backend'
-  },
-  {
-    name: 'MongoDB',
-    level: 78,
-    category: 'Database'
-  },
-  {
-    name: 'PostgreSQL',
-    level: 80,
-    category: 'Database'
-  },
-  {
-    name: 'AWS',
-    level: 70,
-    category: 'DevOps'
-  },
-  {
-    name: 'Docker',
-    level: 75,
-    category: 'DevOps'
-  },
-  {
-    name: 'Git',
-    level: 90,
-    category: 'Tools'
-  }
-];
+  { name: 'React', level: 90, category: 'frontend' },
+  { name: 'TypeScript', level: 85, category: 'language' },
+  { name: 'Node.js', level: 80, category: 'backend' },
+  { name: 'Python', level: 75, category: 'language' },
+  { name: 'MongoDB', level: 70, category: 'backend' },
+  { name: 'PostgreSQL', level: 75, category: 'backend' },
+  { name: 'AWS', level: 65, category: 'tool' },
+  { name: 'Docker', level: 70, category: 'tool' },
+  { name: 'Git', level: 85, category: 'tool' },
+  { name: 'CSS/SCSS', level: 80, category: 'frontend' }
+]

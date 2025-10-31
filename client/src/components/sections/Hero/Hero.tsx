@@ -1,48 +1,62 @@
-import React from 'react';
-import styles from './Hero.module.css';
-import { Button } from '../../ui/Button';
-import { personalInfo } from '../../../data/personalInfo';
+import { personalInfo, socialLinks } from '../../../data'
+import Button from '../../ui/Button'
+import styles from './Hero.module.css'
 
-export const Hero: React.FC = () => {
-  const scrollToAbout = () => {
-    const aboutSection = document.getElementById('about');
-    aboutSection?.scrollIntoView({ behavior: 'smooth' });
-  };
-
-  const scrollToContact = () => {
-    const contactSection = document.getElementById('contact');
-    contactSection?.scrollIntoView({ behavior: 'smooth' });
-  };
-
+const Hero = () => {
   return (
     <section id="home" className={styles.hero}>
       <div className={styles.container}>
-        <h1 className={styles.title}>
-          Hello, I'm <span className={styles.highlight}>{personalInfo.name}</span>
-        </h1>
-        <h2 className={styles.subtitle}>{personalInfo.title}</h2>
-        <p className={styles.description}>
-          {personalInfo.tagline}
-        </p>
-        <div className={styles.ctaButtons}>
-          <Button 
-            variant="primary" 
-            onClick={scrollToContact}
-          >
-            Get In Touch
-          </Button>
-          <Button 
-            variant="secondary" 
-            onClick={scrollToAbout}
-          >
-            Learn More
-          </Button>
+        <div className={styles.content}>
+          <div className={styles.text}>
+            <h1 className={styles.title}>
+              Hi, I'm <span className={styles.name}>{personalInfo.name}</span>
+            </h1>
+            <h2 className={styles.subtitle}>{personalInfo.title}</h2>
+            <p className={styles.description}>{personalInfo.bio}</p>
+            
+            <div className={styles.buttons}>
+              <Button 
+                variant="primary" 
+                size="large"
+                onClick={() => document.getElementById('projects')?.scrollIntoView()}
+              >
+                View My Work
+              </Button>
+              <Button 
+                variant="outline" 
+                size="large"
+                onClick={() => document.getElementById('contact')?.scrollIntoView()}
+              >
+                Get In Touch
+              </Button>
+            </div>
+
+            <div className={styles.socialLinks}>
+              {socialLinks.map((link) => (
+                <a
+                  key={link.name}
+                  href={link.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.socialLink}
+                >
+                  {link.name}
+                </a>
+              ))}
+            </div>
+          </div>
+          
+          <div className={styles.image}>
+            <img 
+              src={personalInfo.avatar} 
+              alt={personalInfo.name}
+              className={styles.avatar}
+            />
+          </div>
         </div>
       </div>
-      <div className={styles.scrollIndicator}>
-        <div className={styles.scrollText}>Scroll Down</div>
-        <div className={styles.scrollArrow}></div>
-      </div>
     </section>
-  );
-};
+  )
+}
+
+export default Hero

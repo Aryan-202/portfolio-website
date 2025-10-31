@@ -1,3 +1,3 @@
-export * from './useLocalStorage';
-export * from './useScroll';
-export * from './useTheme';
+export * from './useLocalStorage'
+export * from './useScroll'
+export * from './useTheme'

@@ -1,37 +1,26 @@
-import { Project } from '../types/project';
+import type { Project } from '../types'
 
 export const projects: Project[] = [
   {
     id: '1',
     title: 'E-Commerce Platform',
-    description: 'A full-stack e-commerce solution with React, Node.js, and MongoDB',
-    image: '/images/project-1.jpg',
-    technologies: ['React', 'Node.js', 'MongoDB', 'Express', 'TypeScript'],
-    demoUrl: 'https://demo.example.com',
-    githubUrl: 'https://github.com/username/project-1',
+    description: 'Full-stack e-commerce solution with React and Node.js',
+    longDescription: 'A complete e-commerce platform featuring user authentication, product management, shopping cart, and payment integration.',
+    technologies: ['React', 'Node.js', 'MongoDB', 'Stripe'],
+    githubUrl: 'https://github.com/johndoe/ecommerce',
+    liveUrl: 'https://ecommerce-demo.com',
     featured: true,
-    category: 'Full Stack'
+    category: ['fullstack', 'ecommerce']
   },
   {
     id: '2',
     title: 'Task Management App',
-    description: 'A collaborative task management application with real-time updates',
-    image: '/images/project-2.jpg',
-    technologies: ['React', 'Firebase', 'Material-UI', 'Redux'],
-    demoUrl: 'https://tasks.example.com',
-    githubUrl: 'https://github.com/username/project-2',
+    description: 'Collaborative task management application',
+    longDescription: 'A Trello-like application for team collaboration with real-time updates and drag-and-drop functionality.',
+    technologies: ['React', 'TypeScript', 'Socket.io', 'PostgreSQL'],
+    githubUrl: 'https://github.com/johndoe/taskapp',
+    liveUrl: 'https://taskapp-demo.com',
     featured: true,
-    category: 'Frontend'
-  },
-  {
-    id: '3',
-    title: 'Weather Dashboard',
-    description: 'Real-time weather dashboard with location-based forecasts',
-    image: '/images/project-3.jpg',
-    technologies: ['Vue.js', 'OpenWeather API', 'Chart.js', 'Vuex'],
-    demoUrl: 'https://weather.example.com',
-    githubUrl: 'https://github.com/username/project-3',
-    featured: false,
-    category: 'Frontend'
+    category: ['frontend', 'collaboration']
   }
-];
+]
