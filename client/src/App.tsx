@@ -5,7 +5,9 @@ function App() {
 
   return (
     <>
-    <Button> click </Button>
+    <div className='p-2'>
+      <Button > click </Button>
+    </div>
     </>
   )
 }
