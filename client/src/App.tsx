@@ -1,4 +1,4 @@
-import Button from './components/ui/Button/Button'
+import Navbar from './components/ui/Navbar/Navbar'
 import './App.css'
 
 function App() {
@@ -6,7 +6,7 @@ function App() {
   return (
     <>
     <div className='p-2'>
-      <Button > click </Button>
+      <Navbar/>
     </div>
     </>
   )

@@ -1,8 +1,9 @@
 import type React from "react";
+import Button from "../Button/Button";
 
 const Navbar: React.FC = ()=>{
-    return <div>
-        Navbar
+    return <div className="flex item-centre">
+        <Button>connect with me</Button>
     </div>
 }
 
