@@ -6,4 +6,4 @@ const appconfig = {
     PORT : process.env.PORT,
 }
 
-export default appconfig
+export default appconfig;
