@@ -1,15 +1,60 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@500&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
-
-
-.button{
-  background-color: white;
-  color: black;
-  border-radius: 2rem;
-  padding-right: 10px;
-  padding-left: 10px;
-  padding-bottom: 4px;
-  padding-top: 4px;
+.button {
+  padding: 0.75rem 2rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
   cursor: pointer;
-  font-family: 'Poppins';
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.primary {
+  background: var(--accent-primary);
+  color: white;
+}
+
+.primary:hover {
+  background: var(--accent-secondary);
+  transform: translateY(-2px);
+}
+
+.secondary {
+  background: transparent;
+  color: var(--text-primary);
+  border: 2px solid var(--accent-primary);
+}
+
+.secondary:hover {
+  background: var(--accent-primary);
+  color: white;
+  transform: translateY(-2px);
+}
+
+.small {
+  padding: 0.5rem 1.5rem;
+  font-size: 0.9rem;
+}
+
+.large {
+  padding: 1rem 2.5rem;
+  font-size: 1.1rem;
+}
+
+.fullWidth {
+  width: 100%;
+}
+
+.button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.button:disabled:hover {
+  transform: none;
 }

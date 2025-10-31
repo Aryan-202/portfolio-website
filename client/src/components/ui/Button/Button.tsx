@@ -1,35 +1,31 @@
 import React from 'react';
 import styles from './Button.module.css';
 
-export interface ButtonProps {
+interface ButtonProps {
   children: React.ReactNode;
-  variant?: 'primary' | 'secondary' | 'outline' | 'ghost';
-  size?: 'sm' | 'md' | 'lg';
+  variant?: 'primary' | 'secondary';
+  size?: 'small' | 'medium' | 'large';
+  fullWidth?: boolean;
   disabled?: boolean;
-  loading?: boolean;
   onClick?: () => void;
   type?: 'button' | 'submit' | 'reset';
   className?: string;
-  fullWidth?: boolean;
 }
 
-const Button: React.FC<ButtonProps> = ({
+export const Button: React.FC<ButtonProps> = ({
   children,
   variant = 'primary',
-  size = 'md',
+  size = 'medium',
+  fullWidth = false,
   disabled = false,
-  loading = false,
   onClick,
   type = 'button',
-  className = '',
-  fullWidth = false,
+  className = ''
 }) => {
   const buttonClass = `
     ${styles.button}
     ${styles[variant]}
     ${styles[size]}
-    ${disabled ? styles.disabled : ''}
-    ${loading ? styles.loading : ''}
     ${fullWidth ? styles.fullWidth : ''}
     ${className}
   `.trim();
@@ -39,13 +35,9 @@ const Button: React.FC<ButtonProps> = ({
       type={type}
       className={buttonClass}
       onClick={onClick}
-      disabled={disabled || loading}
-      aria-busy={loading}
+      disabled={disabled}
     >
-      {loading && <span className={styles.spinner}></span>}
       {children}
     </button>
   );
 };
-
-export default Button;
