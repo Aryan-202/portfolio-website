@@ -1,0 +1,21 @@
+# Node.js
+node_modules/
+npm-debug.log
+.env
+.DS_Store
+build/
+dist/
+logs/
+*.log
+*.sqlite
+*.sqlite3
+*.env.*
+coverage/
+.vscode/
+
+# Editor/OS specific
+.idea/
+.project
+.settings/
+.classpath
+Thumbs.db
