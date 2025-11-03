@@ -15,7 +15,7 @@ const Header = () => {
         <div className="flex justify-between items-center">
           {/* Your logo/brand */}
           <div className="text-xl font-bold">
-            Your Logo
+            <img src="./logo.png" alt="" width={40} height={40}/>
           </div>
           
           {/* Navigation and theme toggle */}
@@ -33,7 +33,7 @@ const Header = () => {
               variant="outline"
               size="icon"
               onClick={toggleTheme}
-              className="rounded-full w-9 h-9"
+              className="rounded-full w-9 h-9 cursor-pointer"
             >
               <Sun className="h-4 w-4 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
               <Moon className="absolute h-4 w-4 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
