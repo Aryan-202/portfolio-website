@@ -138,7 +138,7 @@ const Hero = () => {
                   ease: "easeInOut"
                 }}
               >
-                <span className="text-sm font-semibold">🚀</span>
+                <span className="text-sm font-semibold">🥰</span>
               </motion.div>
               
               <motion.div
@@ -153,7 +153,7 @@ const Hero = () => {
                   delay: 1
                 }}
               >
-                <span className="text-sm font-semibold">💻</span>
+                <span className="text-sm font-semibold">❤️</span>
               </motion.div>
             </div>
           </motion.div>
