@@ -1,9 +1,10 @@
 
 import { Button } from "@/components/ui/button"
-
+import Header from "@/components/layouts/Header"
 const Home = () =>{
     return (
-        <div className="flex min-h-svh flex-col items-center justify-center">
+        <div>
+            <Header/>
             <Button>click</Button>
         </div>
     )
