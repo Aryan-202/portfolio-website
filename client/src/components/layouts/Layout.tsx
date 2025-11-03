@@ -6,7 +6,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
     <div className="relative min-h-screen">
       <Background />
       <Header />
-      <main className="relative z-10"> {/* Content above background */}
+      <main className="relative z-10">
         {children}
       </main>
     </div>
