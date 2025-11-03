@@ -1,9 +1,13 @@
 
 import { Button } from "@/components/ui/button"
+import Header from "@/components/layouts/Header"
+import { Background } from "@/components/Background"
 
 const Home = () =>{
     return (
-        <div className="flex min-h-svh flex-col items-center justify-center">
+        <div>
+            <Background/>
+            <Header/>
             <Button>click</Button>
         </div>
     )
