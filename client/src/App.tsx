@@ -1,14 +1,17 @@
-import Navbar from './components/ui/Navbar/Navbar'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import Layout from './components/layouts/Layout'
+import Home from './pages/Home'
 import './App.css'
 
 function App() {
-
   return (
-    <>
-    <div className='p-2'>
-      <Navbar/>
-    </div>
-    </>
+    <Router>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<Home />} />
+        </Routes>
+      </Layout>
+    </Router>
   )
 }
 
