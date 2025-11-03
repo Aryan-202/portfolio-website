@@ -3,7 +3,6 @@ import { personalInfo } from "@/data/personalInfo";
 import { socialLinks } from "@/data/socialLinks";
 import { Github, Linkedin, Mail, Twitter, Download } from "lucide-react";
 import { motion } from "motion/react";
-import styles from "./Hero.module.css";
 
 const Hero = () => {
   const getIcon = (iconName: string) => {
