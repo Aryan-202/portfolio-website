@@ -13,5 +13,6 @@ export const socialLinks = [
     name: "Twitter",
     url: "https://x.com/AryanxSenpai",
     icon: "twitter"
-  }
+  },
+  
 ]
