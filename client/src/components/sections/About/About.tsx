@@ -4,7 +4,6 @@ import { skills } from "@/data/skills";
 import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/button";
 import { Download, MapPin, Calendar, Award } from "lucide-react";
-import styles from './About.module.css';
 
 const About = () => {
   return (
