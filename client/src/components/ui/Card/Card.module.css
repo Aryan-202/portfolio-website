@@ -1,0 +1,128 @@
+.card {
+  border-radius: var(--radius-lg);
+  background: var(--card);
+  color: var(--card-foreground);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.card--default {
+  border: 1px solid var(--border);
+  box-shadow: 
+    0 1px 3px 0 rgba(0, 0, 0, 0.1),
+    0 1px 2px 0 rgba(0, 0, 0, 0.06);
+}
+
+.card--outline {
+  border: 2px solid var(--border);
+  background: transparent;
+}
+
+.card--ghost {
+  border: none;
+  background: transparent;
+  box-shadow: none;
+}
+
+.card--hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 
+    0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Dark mode specific styles */
+.dark .card--default {
+  box-shadow: 
+    0 1px 3px 0 rgba(0, 0, 0, 0.3),
+    0 1px 2px 0 rgba(0, 0, 0, 0.2);
+}
+
+.dark .card--hover:hover {
+  box-shadow: 
+    0 20px 25px -5px rgba(0, 0, 0, 0.3),
+    0 10px 10px -5px rgba(0, 0, 0, 0.2);
+}
+
+.cardHeader {
+  display: flex;
+  flex-direction: column;
+  space-y: 1.5;
+  padding: 1.5rem 1.5rem 0;
+}
+
+.cardTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+  margin: 0;
+}
+
+.cardDescription {
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+  line-height: 1.5;
+  margin-top: 0.5rem;
+}
+
+.cardContent {
+  padding: 1.5rem;
+  padding-top: 0;
+}
+
+.cardFooter {
+  display: flex;
+  align-items: center;
+  padding: 0 1.5rem 1.5rem;
+  gap: 0.5rem;
+}
+
+/* Animation for card entrance */
+@keyframes cardEnter {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.card[data-animate="true"] {
+  animation: cardEnter 0.5s ease-out;
+}
+
+/* Gradient border variant */
+.card--gradient {
+  position: relative;
+  background: var(--card);
+  border: none;
+}
+
+.card--gradient::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-lg);
+  padding: 2px;
+  background: linear-gradient(135deg, var(--primary), var(--primary-foreground));
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+}
+
+/* Glass morphism variant */
+.card--glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.dark .card--glass {
+  background: rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
