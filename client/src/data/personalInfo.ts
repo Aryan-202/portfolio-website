@@ -4,6 +4,6 @@ export const personalInfo = {
   description: "I build exceptional digital experiences that are fast, accessible, visually appealing, and responsive.",
   email: "aryanvishwakarma275@gmail.com",
   location: "Your Location", // Update this with your actual location
-  avatar: "/hero.jpg",
+  avatar: "/hero.png",
   resumeLink: "/resume.pdf" // Make sure this file exists in public folder
 }

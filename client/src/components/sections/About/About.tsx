@@ -1,9 +1,7 @@
 import { motion } from "motion/react";
 import { personalInfo } from "@/data/personalInfo";
-import { skills } from "@/data/skills";
 import { Card } from "@/components/ui/Card";
-import { Button } from "@/components/ui/button";
-import { Download, MapPin, Calendar, Award } from "lucide-react";
+import { MapPin, Calendar, Award } from "lucide-react";
 
 const About = () => {
   return (
@@ -23,17 +21,16 @@ const About = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-          {/* Left Column - Personal Info & Story */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          {/* Left Column - My Journey (Full width on mobile, 2/3 on desktop) */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="space-y-8"
+            className=""
           >
-            {/* Personal Story */}
-            <Card className="p-8">
-              <h3 className="text-2xl font-semibold mb-4">My Journey</h3>
+            <Card className="p-8 h-full w-[500px] mr-1.5">
+            <h3 className="text-2xl font-semibold mb-4">My Journey</h3>
               <p className="text-muted-foreground leading-relaxed mb-4">
                 I'm a passionate Full Stack Developer with a love for creating efficient, 
                 scalable, and user-friendly applications. My journey in web development 
@@ -47,9 +44,16 @@ const About = () => {
                 staying updated with the latest industry trends.
               </p>
             </Card>
+          </motion.div>
 
-            {/* Personal Details */}
-            <Card className="p-6">
+          {/* Right Column - Personal Details (Full width on mobile, 1/3 on desktop) */}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="lg:col-span-1"
+          >
+            <Card className="p-6 h-full w-auto">
               <h4 className="text-xl font-semibold mb-6">Personal Details</h4>
               <div className="space-y-4">
                 <div className="flex items-center gap-4">
@@ -83,61 +87,10 @@ const About = () => {
                 </div>
               </div>
             </Card>
-
-            {/* CTA Button */}
-            <Button 
-              size="lg" 
-              className="rounded-full px-8 py-6 text-lg font-semibold w-full sm:w-auto"
-              asChild
-            >
-              <a href={personalInfo.resumeLink} download>
-                <Download className="w-5 h-5 mr-2" />
-                Download Resume
-              </a>
-            </Button>
-          </motion.div>
-
-          {/* Right Column - Skills */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            className="space-y-8"
-          >
-            {skills.map((skillCategory, categoryIndex) => (
-              <Card key={skillCategory.category} className="p-6">
-                <h3 className="text-xl font-semibold mb-6 text-center">
-                  {skillCategory.category}
-                </h3>
-                
-                <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-                  {skillCategory.items.map((skill, skillIndex) => (
-                    <motion.div
-                      key={skill}
-                      initial={{ opacity: 0, scale: 0.8 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      transition={{ 
-                        duration: 0.3, 
-                        delay: 0.6 + (categoryIndex * 0.1) + (skillIndex * 0.05) 
-                      }}
-                      whileHover={{ scale: 1.05 }}
-                      className="flex flex-col items-center gap-3 p-4 rounded-lg border hover:bg-accent/50 transition-all duration-300"
-                    >
-                      <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
-                        <span className="text-2xl">
-                          {getSkillIcon(skill)}
-                        </span>
-                      </div>
-                      <span className="text-sm font-medium text-center">{skill}</span>
-                    </motion.div>
-                  ))}
-                </div>
-              </Card>
-            ))}
           </motion.div>
         </div>
 
-        {/* Additional Info Section */}
+        {/* Rest of your component remains the same */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -182,34 +135,6 @@ const About = () => {
       </div>
     </section>
   );
-};
-
-// Helper function to get icons for skills
-const getSkillIcon = (skill: string): string => {
-  const icons: { [key: string]: string } = {
-    'React': '⚛️',
-    'TypeScript': '📘',
-    'JavaScript': '💛',
-    'Node.js': '🟢',
-    'Python': '🐍',
-    'Java': '☕',
-    'HTML': '🌐',
-    'CSS': '🎨',
-    'Tailwind CSS': '💨',
-    'MongoDB': '🍃',
-    'PostgreSQL': '🐘',
-    'Git': '📚',
-    'Docker': '🐳',
-    'AWS': '☁️',
-    'Firebase': '🔥',
-    'Next.js': '⏭️',
-    'Express.js': '🚂',
-    'Redis': '🗃️',
-    'GraphQL': '📊',
-    'REST API': '🔗',
-  };
-  
-  return icons[skill] || '💼';
 };
 
 export default About;
