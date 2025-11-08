@@ -2,10 +2,7 @@ import { motion } from "motion/react";
 import { Card } from "@/components/ui/Card";
 import { 
   Code2, 
-  Database, 
-  Cloud, 
-  GitBranch,
-  Palette,
+  Database,
   Server
 } from "lucide-react";
 import styles from './Skills.module.css';
