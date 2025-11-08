@@ -19,33 +19,45 @@ const Header = () => {
     setIsMobileMenuOpen(false);
   };
 
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      const offsetTop = element.getBoundingClientRect().top + window.pageYOffset - 80; // Adjust for header height
+      window.scrollTo({
+        top: offsetTop,
+        behavior: 'smooth'
+      });
+    }
+    closeMobileMenu();
+  };
+
   const navLinks = [
-    { href: '#home', label: 'Home' },
-    { href: '#about', label: 'About' },
-    { href: '#skills', label: 'Skills' },
-    { href: '#projects', label: 'Projects' },
-    { href: '#contact', label: 'Contact' },
+    { id: 'home', label: 'Home' },
+    { id: 'about', label: 'About' },
+    { id: 'skills', label: 'Skills' },
+    { id: 'projects', label: 'Projects' },
+    { id: 'contact', label: 'Contact' },
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b">
-      <div className="container mx-auto px-4 py-4">
+    <header className="fixed top-6 left-1/2 transform -translate-x-1/2 z-50 bg-background/80 backdrop-blur-md border rounded-full shadow-lg w-[95%] max-w-4xl">
+      <div className="container mx-auto px-6 py-3">
         <div className="flex justify-between items-center">
           {/* Logo/Brand */}
           <div className="text-xl font-bold">
-            <img src="./logo.png" alt="Logo" width={40} height={40} />
+            <img src="./logo.png" alt="Logo" width={40} height={40} className="rounded-full" />
           </div>
           
           {/* Desktop Navigation */}
           <nav className="hidden md:flex gap-6">
             {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="hover:text-primary transition-colors font-medium"
+              <button
+                key={link.id}
+                onClick={() => scrollToSection(link.id)}
+                className="hover:text-primary transition-colors font-medium px-3 py-2 rounded-full hover:bg-accent"
               >
                 {link.label}
-              </a>
+              </button>
             ))}
           </nav>
           
@@ -87,16 +99,15 @@ const Header = () => {
             ${isMobileMenuOpen ? 'max-h-96 opacity-100 mt-4' : 'max-h-0 opacity-0'}
           `}
         >
-          <nav className="flex flex-col gap-4 pb-4 border-t border-border pt-4">
+          <nav className="flex flex-col gap-2 pb-4 border-t border-border pt-4">
             {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={closeMobileMenu}
-                className="hover:text-primary transition-colors font-medium py-2 px-4 rounded-lg hover:bg-accent"
+              <button
+                key={link.id}
+                onClick={() => scrollToSection(link.id)}
+                className="hover:text-primary transition-colors font-medium py-3 px-4 rounded-lg hover:bg-accent text-left"
               >
                 {link.label}
-              </a>
+              </button>
             ))}
           </nav>
         </div>

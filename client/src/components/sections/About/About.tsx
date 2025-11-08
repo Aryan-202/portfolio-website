@@ -11,7 +11,7 @@ import {
 
 const About = () => {
   return (
-    <section id="about" className="py-20 px-4">
+    <section id="about" className="py-20 px-4 scroll-animate">
       <div className="container mx-auto max-w-6xl">
         {/* Section Header */}
         <motion.div
