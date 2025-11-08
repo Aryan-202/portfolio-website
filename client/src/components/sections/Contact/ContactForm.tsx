@@ -39,7 +39,7 @@ const ContactForm = () => {
     setError('');
 
     try {
-      const response = await fetch('http://localhost:3001/api/contact', {
+      const response = await fetch('https://aryans-portfolio-9srv.onrender.com/api/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -68,11 +68,11 @@ const ContactForm = () => {
       <motion.div
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
-        className="text-center py-12"
+        className="py-12 text-center"
       >
-        <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-4" />
-        <h4 className="text-2xl font-semibold mb-2">Message Sent!</h4>
-        <p className="text-muted-foreground mb-6">
+        <CheckCircle className="mx-auto mb-4 w-16 h-16 text-green-500" />
+        <h4 className="mb-2 font-semibold text-2xl">Message Sent!</h4>
+        <p className="mb-6 text-muted-foreground">
           Thank you for your message. I'll get back to you as soon as possible.
         </p>
         <Button 
@@ -90,12 +90,12 @@ const ContactForm = () => {
     <form onSubmit={handleSubmit} className={styles.contactForm}>
       {/* Error Message */}
       {error && (
-        <div className="mb-6 p-4 bg-destructive/10 border border-destructive/20 rounded-lg">
+        <div className="bg-destructive/10 mb-6 p-4 border border-destructive/20 rounded-lg">
           <p className="text-destructive text-sm">{error}</p>
         </div>
       )}
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+      <div className="gap-6 grid grid-cols-1 md:grid-cols-2 mb-6">
         {/* Name Field */}
         <div className={styles.formGroup}>
           <label htmlFor="name" className={styles.label}>
@@ -179,16 +179,16 @@ const ContactForm = () => {
           type="submit"
           size="lg"
           disabled={isSubmitting}
-          className="w-full rounded-full py-6 text-lg font-semibold"
+          className="py-6 rounded-full w-full font-semibold text-lg"
         >
           {isSubmitting ? (
             <>
-              <Loader2 className="w-5 h-5 mr-2 animate-spin" />
+              <Loader2 className="mr-2 w-5 h-5 animate-spin" />
               Sending...
             </>
           ) : (
             <>
-              <Send className="w-5 h-5 mr-2" />
+              <Send className="mr-2 w-5 h-5" />
               Send Message
             </>
           )}
