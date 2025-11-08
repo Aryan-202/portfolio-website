@@ -3,7 +3,7 @@ import { personalInfo } from "@/data/personalInfo";
 import { socialLinks } from "@/data/socialLinks";
 import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/button";
-import { Mail, Phone, MapPin, Send, Github, Linkedin, Twitter } from "lucide-react";
+import { Mail, MapPin, Send, Github, Linkedin, Twitter } from "lucide-react";
 import ContactForm from "./ContactForm";
 
 const Contact = () => {
