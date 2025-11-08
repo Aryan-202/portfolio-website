@@ -2,22 +2,10 @@ import { motion } from "motion/react";
 import { personalInfo } from "@/data/personalInfo";
 import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/button";
-import { Mail, Send, Github, Linkedin, Twitter } from "lucide-react";
+import { Mail, Send } from "lucide-react";
 import ContactForm from "./ContactForm";
 
 const Contact = () => {
-  const getIcon = (iconName: string) => {
-    switch (iconName) {
-      case "github":
-        return <Github className="w-5 h-5" />;
-      case "linkedin":
-        return <Linkedin className="w-5 h-5" />;
-      case "twitter":
-        return <Twitter className="w-5 h-5" />;
-      default:
-        return <Mail className="w-5 h-5" />;
-    }
-  };
 
   return (
     <section id="contact" className="py-20 px-4">
