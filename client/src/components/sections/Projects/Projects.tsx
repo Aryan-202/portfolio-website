@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { motion } from "motion/react";
 import { projects } from "@/data/projects";
 import { Card, CardContent } from "@/components/ui/Card";
@@ -8,14 +7,6 @@ import type { Project } from "@/types/project";
 import styles from './Projects.module.css';
 
 const Projects = () => {
-  const [filter, setFilter] = useState<string>('all');
-  
-  const categories = ['all', ...new Set(projects.map(project => project.category))];
-  
-  const filteredProjects = filter === 'all' 
-    ? projects 
-    : projects.filter(project => project.category === filter);
-
   const featuredProjects = projects.filter(project => project.featured);
 
   return (
@@ -51,38 +42,6 @@ const Projects = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
             {featuredProjects.map((project, index) => (
               <ProjectCard key={project.id} project={project} index={index} featured />
-            ))}
-          </div>
-        </motion.div>
-
-        {/* All Projects with Filter */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-        >
-          <div className="text-center mb-8">
-            <h3 className="text-2xl font-semibold mb-6">All Projects</h3>
-            
-            {/* Filter Buttons */}
-            <div className="flex flex-wrap justify-center gap-2 mb-8">
-              {categories.map(category => (
-                <Button
-                  key={category}
-                  variant={filter === category ? "default" : "outline"}
-                  size="sm"
-                  onClick={() => setFilter(category)}
-                  className="rounded-full capitalize"
-                >
-                  {category}
-                </Button>
-              ))}
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredProjects.map((project, index) => (
-              <ProjectCard key={project.id} project={project} index={index} />
             ))}
           </div>
         </motion.div>
