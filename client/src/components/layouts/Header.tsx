@@ -24,6 +24,7 @@ const Header = () => {
             <nav className="hidden md:flex gap-6">
               <a href="#home" className="hover:text-primary transition-colors">Home</a>
               <a href="#about" className="hover:text-primary transition-colors">About</a>
+              <a href="#skills" className="hover:text-primary transition-colors">Skills</a>
               <a href="#projects" className="hover:text-primary transition-colors">Projects</a>
               <a href="#contact" className="hover:text-primary transition-colors">Contact</a>
             </nav>

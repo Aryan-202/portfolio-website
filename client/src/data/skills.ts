@@ -31,7 +31,8 @@ export const skills = [
       "Git",
       "Docker",
       "AWS",
-      "Firebase"
+      "Firebase",
+      "Redis"
     ]
   }
 ];
