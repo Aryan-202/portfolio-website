@@ -1,9 +1,8 @@
 import { motion } from "motion/react";
 import { personalInfo } from "@/data/personalInfo";
-import { socialLinks } from "@/data/socialLinks";
 import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/button";
-import { Mail, MapPin, Send, Github, Linkedin, Twitter } from "lucide-react";
+import { Mail, Send, Github, Linkedin, Twitter } from "lucide-react";
 import ContactForm from "./ContactForm";
 
 const Contact = () => {
@@ -37,22 +36,13 @@ const Contact = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {/* Contact Information */}
+        <div className="flex justify-center">
+          {/* Contact Form - Centered and full width on larger screens */}
           <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="lg:col-span-1"
-          >
-          </motion.div>
-
-          {/* Contact Form */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="lg:col-span-2"
+            className="w-full max-w-2xl"
           >
             <Card className="p-6 lg:p-8 h-full">
               <h3 className="text-2xl font-semibold mb-6">Send Me a Message</h3>
