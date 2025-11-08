@@ -5,7 +5,7 @@ dotenv.config();
 
 const allowedOrigins = [
   process.env.CLIENT_URL || 'http://localhost:5173',
-  'https://your-portfolio-domain.com' // Add your production domain
+  'welcomearyan.vercel.app' // Add your production domain
 ];
 
 export const corsOptions = cors({
