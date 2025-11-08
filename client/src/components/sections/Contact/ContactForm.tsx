@@ -1,3 +1,4 @@
+// client/src/components/sections/Contact/ContactForm.tsx
 import { useState } from "react";
 import { motion } from "motion/react";
 import { Button } from "@/components/ui/button";
@@ -20,6 +21,7 @@ const ContactForm = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [error, setError] = useState<string>('');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -27,20 +29,35 @@ const ContactForm = () => {
       ...prev,
       [name]: value
     }));
+    // Clear error when user starts typing
+    if (error) setError('');
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setError('');
 
-    // Simulate form submission
     try {
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      console.log('Form submitted:', formData);
-      setIsSubmitted(true);
-      setFormData({ name: '', email: '', subject: '', message: '' });
+      const response = await fetch('http://localhost:3001/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setIsSubmitted(true);
+        setFormData({ name: '', email: '', subject: '', message: '' });
+      } else {
+        setError(result.message || 'Failed to send message. Please try again.');
+      }
     } catch (error) {
       console.error('Error submitting form:', error);
+      setError('Network error. Please check your connection and try again.');
     } finally {
       setIsSubmitting(false);
     }
@@ -71,6 +88,13 @@ const ContactForm = () => {
 
   return (
     <form onSubmit={handleSubmit} className={styles.contactForm}>
+      {/* Error Message */}
+      {error && (
+        <div className="mb-6 p-4 bg-destructive/10 border border-destructive/20 rounded-lg">
+          <p className="text-destructive text-sm">{error}</p>
+        </div>
+      )}
+
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
         {/* Name Field */}
         <div className={styles.formGroup}>
@@ -86,6 +110,7 @@ const ContactForm = () => {
             required
             className={styles.input}
             placeholder="Enter your name"
+            disabled={isSubmitting}
           />
         </div>
 
@@ -103,6 +128,7 @@ const ContactForm = () => {
             required
             className={styles.input}
             placeholder="Enter your email"
+            disabled={isSubmitting}
           />
         </div>
       </div>
@@ -121,6 +147,7 @@ const ContactForm = () => {
           required
           className={styles.input}
           placeholder="What's this about?"
+          disabled={isSubmitting}
         />
       </div>
 
@@ -138,6 +165,7 @@ const ContactForm = () => {
           rows={6}
           className={styles.textarea}
           placeholder="Tell me about your project or just say hello..."
+          disabled={isSubmitting}
         />
       </div>
 
