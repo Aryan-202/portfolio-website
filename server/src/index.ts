@@ -60,7 +60,7 @@ app.use('*', (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`🚀 Server running on port ${PORT}`);
-  console.log(`📧 Email service: ${process.env.EMAIL_SERVICE}`);
-  console.log(`🌐 Environment: ${process.env.NODE_ENV}`);
+  console.log(`Server running on port ${PORT}`);
+  console.log(`Email service: ${process.env.EMAIL_SERVICE}`);
+  console.log(`Environment: ${process.env.NODE_ENV}`);
 });
