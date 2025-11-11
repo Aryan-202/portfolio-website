@@ -105,7 +105,7 @@ export const sendContactEmail = async (req: Request, res: Response) => {
       html: ownerEmailHtml,
     });
 
-    // Send auto-reply to the sender
+   
     await emailTransporter.sendMail({
       from: process.env.EMAIL_USER,
       to: email,
