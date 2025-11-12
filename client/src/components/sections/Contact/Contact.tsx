@@ -60,12 +60,6 @@ const Contact = () => {
                   Send Email
                 </a>
               </Button>
-              <Button variant="outline" size="lg" className="rounded-full" asChild>
-                <a href={personalInfo.resumeLink} download>
-                  <Send className="w-5 h-5 mr-2" />
-                  Download Resume
-                </a>
-              </Button>
             </div>
           </Card>
         </motion.div>
