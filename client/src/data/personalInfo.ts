@@ -5,5 +5,5 @@ export const personalInfo = {
   email: "aryanvishwakarma275@gmail.com",
   location: "Gorakhpur, Uttar Pradesh, India",
   avatar: "/hero.png",
-  resumeLink: "/resume.pdf"
+  resumeLink: "/resume.docx"
 }
